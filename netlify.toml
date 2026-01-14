@@ -10,8 +10,7 @@
   # Directory containing the deploy-ready HTML/assets (Next.js typically works with .next, but Netlify's Next.js runtime handles this)
   publish = ".next"
 
-[context.production]
-  environment = { NODE_ENV = "production" }
+
 
 # Ensure Next.js Runtime is used (usually auto-detected, but good to be explicit)
 [[plugins]]
