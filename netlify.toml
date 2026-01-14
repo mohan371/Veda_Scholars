@@ -5,7 +5,7 @@
   base = "frontend"
   
   # Command to build the site
-  command = "npm run build"
+  command = "npm install && npm run build"
   
   # Directory containing the deploy-ready HTML/assets (Next.js typically works with .next, but Netlify's Next.js runtime handles this)
   publish = ".next"
