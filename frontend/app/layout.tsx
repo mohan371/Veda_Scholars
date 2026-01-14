@@ -21,6 +21,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Learn Lead Inspire",
+  verification:{
+    google:"IYxi6Ly1qIhFQ395BUuUXC9nBkvqTeRXq53WSa64kIE",
+  },
   description: "Transform your dreams into reality",
   icons: {
     icon: [
