@@ -106,7 +106,10 @@ export default function ServiceDetailedList() {
 
                                     {/* Big Icon */}
                                     <div className="relative z-10 text-white/5 group-hover:text-white/10 transition-colors duration-500 transform group-hover:scale-110">
-                                        {React.cloneElement(service.icon as React.ReactElement, { className: "w-64 h-64" })}
+                                        {React.cloneElement(
+                                            service.icon as React.ReactElement<{ className?: string }>,
+                                            { className: "w-64 h-64" }
+                                        )}
                                     </div>
 
                                     <div className="absolute bottom-8 left-8 right-8 z-20">
