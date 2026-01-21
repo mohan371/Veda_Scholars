@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef, useEffect } from 'react';
-import { motion, useInView, useAnimation } from 'framer-motion';
+import { motion, useInView, useAnimation, type Variants } from 'framer-motion';
 
 interface FadeInProps {
     children: React.ReactNode;
@@ -10,8 +10,14 @@ interface FadeInProps {
     direction?: 'up' | 'down' | 'left' | 'right' | 'none';
 }
 
-export default function FadeIn({ children, delay = 0, className = "", direction = 'up' }: FadeInProps) {
-    const ref = useRef(null);
+export default function FadeIn({
+    children,
+    delay = 0,
+    className = "",
+    direction = 'up',
+}: FadeInProps) {
+
+    const ref = useRef<HTMLDivElement | null>(null);
     const isInView = useInView(ref, { once: true, margin: "-10% 0px" });
     const controls = useAnimation();
 
@@ -21,7 +27,7 @@ export default function FadeIn({ children, delay = 0, className = "", direction 
         }
     }, [isInView, controls]);
 
-    const variants = {
+    const variants: Variants = {
         hidden: {
             opacity: 0,
             y: direction === 'up' ? 30 : direction === 'down' ? -30 : 0,
@@ -33,9 +39,9 @@ export default function FadeIn({ children, delay = 0, className = "", direction 
             x: 0,
             transition: {
                 duration: 0.6,
-                ease: "easeOut",
-                delay: delay
-            }
+                ease: [0.16, 1, 0.3, 1], // ✅ FIXED
+                delay,
+            },
         },
     };
 
