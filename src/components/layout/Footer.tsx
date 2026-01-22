@@ -1,10 +1,25 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Facebook, Linkedin, Instagram, Youtube, Mail, Phone, Globe } from 'lucide-react';
 
 export default function Footer() {
+    const pathname = usePathname();
     const currentYear = new Date().getFullYear();
+
+    const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        // If clicking the link for the current page, scroll to top
+        if (pathname === href) {
+            e.preventDefault(); // Prevent default since we are already here
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    };
 
     const linkGroups = [
         {
@@ -28,20 +43,20 @@ export default function Footer() {
         {
             title: "For Universities",
             links: [
-                { name: "Partner With Us", href: "/universities" },
-                { name: "Our Network", href: "/universities" },
-                { name: "Recruitment", href: "/universities" },
+                { name: "Partner With Us", href: "/partner-with-us" },
+                { name: "Our Network", href: "/partner-with-us" },
+                { name: "Recruitment", href: "/partner-with-us" },
             ]
         }
     ];
 
     return (
-        <footer className="bg-slate-900 text-slate-200 pt-20 pb-10 mt-auto">
+        <footer className="bg-primary text-slate-200 pt-20 pb-10 mt-auto">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
                     {/* Brand Column (Span 2) */}
                     <div className="lg:col-span-2">
-                        <Link href="/" className="flex items-center gap-3 mb-6 text-white group">
+                        <Link href="/" className="flex items-center gap-3 mb-6 text-white group" onClick={(e) => handleLinkClick(e, '/')}>
                             <div className="relative h-9 w-9 md:h-10 md:w-10 rounded-lg overflow-hidden shadow-sm shrink-0 transition-transform duration-300 ease-in-out group-hover:scale-105">
                                 <Image
                                     src="/images/veda-logo.png"
@@ -109,6 +124,7 @@ export default function Footer() {
                                         <Link
                                             href={link.href}
                                             className="text-slate-400 hover:text-secondary transition-colors"
+                                            onClick={(e) => handleLinkClick(e, link.href)}
                                         >
                                             {link.name}
                                         </Link>
@@ -123,13 +139,13 @@ export default function Footer() {
                         <h3 className="font-heading font-bold text-white text-lg mb-6">Legal</h3>
                         <ul className="space-y-4">
                             <li>
-                                <Link href="/privacy-policy" className="text-slate-400 hover:text-secondary transition-colors">Privacy Policy</Link>
+                                <Link href="/privacy-policy" className="text-slate-400 hover:text-secondary transition-colors" onClick={(e) => handleLinkClick(e, '/privacy-policy')}>Privacy Policy</Link>
                             </li>
                             <li>
-                                <Link href="/terms-of-service" className="text-slate-400 hover:text-secondary transition-colors">Terms of Service</Link>
+                                <Link href="/terms-of-service" className="text-slate-400 hover:text-secondary transition-colors" onClick={(e) => handleLinkClick(e, '/terms-of-service')}>Terms of Service</Link>
                             </li>
                             <li>
-                                <Link href="/cookie-policy" className="text-slate-400 hover:text-secondary transition-colors">Cookie Policy</Link>
+                                <Link href="/cookie-policy" className="text-slate-400 hover:text-secondary transition-colors" onClick={(e) => handleLinkClick(e, '/cookie-policy')}>Cookie Policy</Link>
                             </li>
                         </ul>
                     </div>

@@ -7,9 +7,8 @@ import StudentFAQ from '@/components/students/StudentFAQ'; // Reusing for effici
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Contact Veda Scholars | Free Career Consultation',
-    description: 'Book your free counselling session today. We respond within 24 hours. Start your education to employment journey.',
-    keywords: ['Free Counselling', 'Contact Veda', 'Book Consultation', 'Study Abroad Inquiry', 'Career Support'],
+    title: 'Contact Veda Scholars | Book Free Counselling',
+    description: 'Contact Veda Scholars to book free counselling, explore partnerships, or discuss recruitment opportunities.',
 };
 
 export default function ContactPage() {

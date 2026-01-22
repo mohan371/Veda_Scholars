@@ -1,22 +1,79 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Button from '../ui/Button';
 import { Send } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
 
-export default function ContactForm() {
+import { useRouter } from 'next/navigation';
+
+function ContactFormContent() {
+    const searchParams = useSearchParams();
+    const router = useRouter(); // Initialize router
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: '',
-        interest: 'Study Abroad'
+        interest: 'General Inquiry'
     });
 
-    const handleSubmit = (e: React.FormEvent) => {
+    useEffect(() => {
+        const type = searchParams.get('type');
+        if (type === 'student') {
+            setFormData(prev => ({ ...prev, interest: 'Student Counselling' }));
+        } else if (type === 'partner') {
+            setFormData(prev => ({ ...prev, interest: 'University Partnership' }));
+        } else if (type === 'recruiter') {
+            setFormData(prev => ({ ...prev, interest: 'Recruiter / Hiring' }));
+        }
+    }, [searchParams]);
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Placeholder for actual submission logic
-        console.log('Form Submitted', formData);
-        alert('Thank you! We will contact you soon.');
+
+        // Disable button/show loading state if needed (optional enhancement)
+        const submitBtn = document.getElementById('form-consultation-submit') as HTMLButtonElement;
+        if (submitBtn) {
+            submitBtn.innerHTML = 'Sending...';
+            submitBtn.disabled = true;
+        }
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                // Determine the type param for the thank you page based on interest
+                let typeParam = 'general';
+                if (formData.interest === 'Student Counselling') typeParam = 'student';
+                else if (formData.interest === 'University Partnership') typeParam = 'partner';
+                else if (formData.interest === 'Recruiter / Hiring') typeParam = 'recruiter';
+
+                // Redirect to Thank You page
+                router.push(`/thank-you?type=${typeParam}`);
+            } else {
+                alert('Something went wrong. Please try again.');
+                if (submitBtn) {
+                    submitBtn.innerHTML = 'Submit Request';
+                    submitBtn.disabled = false;
+                }
+            }
+
+        } catch (error) {
+            console.error('Submission error:', error);
+            alert('Error submitting form. Please try again later.');
+            if (submitBtn) {
+                submitBtn.innerHTML = 'Submit Request';
+                submitBtn.disabled = false;
+            }
+        }
     };
 
     return (
@@ -60,20 +117,20 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">I'm interested in</label>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Purpose of Inquiry</label>
                     <select
                         className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none bg-white"
                         value={formData.interest}
                         onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
                     >
-                        <option>Study Abroad Counselling</option>
-                        <option>Job/Placement Support</option>
-                        <option>Skill Development Training</option>
+                        <option>General Inquiry</option>
+                        <option>Student Counselling</option>
                         <option>University Partnership</option>
+                        <option>Recruiter / Hiring</option>
                     </select>
                 </div>
 
-                <Button id="form-consultation-submit" variant="primary" className="w-full md:w-auto md:px-12 justify-center py-4 text-lg shadow-xl shadow-primary/20 transition-transform hover:scale-[1.02]">
+                <Button id="form-consultation-submit" type="submit" variant="primary" className="w-full md:w-auto md:px-12 justify-center py-4 text-lg shadow-xl shadow-primary/20 transition-transform hover:scale-[1.02]">
                     Submit Request <Send className="w-5 h-5 ml-2" />
                 </Button>
 
@@ -82,5 +139,13 @@ export default function ContactForm() {
                 </p>
             </form>
         </div>
+    );
+}
+
+export default function ContactForm() {
+    return (
+        <Suspense fallback={<div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 h-[600px] flex items-center justify-center">Loading form...</div>}>
+            <ContactFormContent />
+        </Suspense>
     );
 }

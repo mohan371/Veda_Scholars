@@ -17,10 +17,10 @@ export default function FinalCTA() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <Button variant="primary" size="lg" className="min-w-[200px] shadow-lg shadow-gold/20">
+                    <Button variant="primary" size="lg" href="/contact?type=student" className="min-w-[200px] shadow-lg shadow-gold/20">
                         Book Your Free Counselling
                     </Button>
-                    <Button variant="outline" size="lg" className="min-w-[200px] border-slate-500 text-slate-300 hover:bg-slate-800 hover:text-white hover:border-white">
+                    <Button variant="outline" size="lg" href="/contact?type=partner" className="min-w-[200px] border-slate-500 text-slate-300 hover:bg-slate-800 hover:text-white hover:border-white">
                         Partner With Us
                     </Button>
                 </div>

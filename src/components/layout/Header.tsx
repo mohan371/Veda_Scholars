@@ -22,10 +22,10 @@ export default function Header() {
 
     const navLinks = [
         { name: 'Home', href: '/' },
-        { name: 'About', href: '/about' },
+        { name: 'About Us', href: '/about' },
         { name: 'Services', href: '/services' },
         { name: 'Students', href: '/students' },
-        { name: 'Universities', href: '/universities' },
+        { name: 'Partner With Us', href: '/partner-with-us' },
         { name: 'Contact', href: '/contact' },
     ];
 
@@ -52,11 +52,8 @@ export default function Header() {
 
                         {/* Brand Text */}
                         <div className="flex flex-col justify-center">
-                            <span className={`font-heading font-bold text-xl md:text-2xl tracking-tight leading-none transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-slate-900'}`}>
+                            <span className="font-heading font-bold text-xl md:text-2xl tracking-wide leading-none text-primary transition-colors duration-300">
                                 Veda Scholars
-                            </span>
-                            <span className={`text-[0.65rem] md:text-[0.7rem] font-medium tracking-[0.2em] uppercase mt-1 transition-colors duration-300 ${isScrolled ? 'text-[#B8860B]' : 'text-[#B8860B]'}`}>
-                                Learn • Lead • Inspire
                             </span>
                         </div>
                     </Link>
@@ -70,7 +67,7 @@ export default function Header() {
                                     key={link.name}
                                     href={link.href}
                                     className={`relative text-sm font-medium transition-colors duration-300 group/nav
-                                        ${isActive ? 'text-[#B8860B]' : isScrolled ? 'text-slate-700 hover:text-[#B8860B]' : 'text-slate-800 hover:text-[#B8860B]'}
+                                        ${isActive ? 'text-[#B8860B]' : isScrolled ? 'text-primary hover:text-[#B8860B]' : 'text-primary hover:text-[#B8860B]'}
                                     `}
                                 >
                                     {link.name}

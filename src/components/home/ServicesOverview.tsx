@@ -44,7 +44,7 @@ export default function ServicesOverview() {
                             We support the entire journey from academic planning to professional placement.
                         </p>
                     </div>
-                    <Button variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-slate-900 shrink-0">
+                    <Button variant="outline" href="/services" className="border-secondary text-secondary hover:bg-secondary hover:text-slate-900 shrink-0">
                         Explore All Services
                     </Button>
                 </div>
@@ -68,7 +68,7 @@ export default function ServicesOverview() {
                 </div>
 
                 <div className="mt-12 text-center md:hidden">
-                    <Button variant="outline" className="w-full border-secondary text-secondary hover:bg-secondary hover:text-slate-900">
+                    <Button variant="outline" href="/services" className="w-full border-secondary text-secondary hover:bg-secondary hover:text-slate-900">
                         Explore All Services
                     </Button>
                 </div>

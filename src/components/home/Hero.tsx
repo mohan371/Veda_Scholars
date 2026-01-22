@@ -3,7 +3,7 @@ import Button from '../ui/Button';
 
 export default function Hero() {
     return (
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
             {/* Background Image with Overlay */}
             <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
@@ -14,7 +14,7 @@ export default function Hero() {
             </div>
 
             {/* Content */}
-            <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
+            <div className="container mx-auto px-4 md:px-6 relative z-10 text-center pt-20 pb-24">
                 <div className="max-w-4xl mx-auto space-y-8 animate-fade-in-up">
                     <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-white leading-tight">
                         Empowering Your Journey from <br />
@@ -27,20 +27,19 @@ export default function Hero() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                        <Button variant="primary" size="lg" href="/counselling" className="w-full sm:w-auto shadow-xl shadow-secondary/20">
+                        <Button variant="primary" size="lg" href="/contact?type=student" className="w-full sm:w-auto shadow-xl shadow-secondary/20">
                             Book Free Counselling
                         </Button>
-                        <Button variant="secondary" size="lg" href="/partner" className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-slate-900 hover:border-white">
+                        <Button variant="secondary" size="lg" href="/contact?type=partner" className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-slate-900 hover:border-white">
                             Partner With Us
                         </Button>
                     </div>
                 </div>
             </div>
 
-            {/* Scroll Indicator */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
-                <span className="text-white/50 text-sm tracking-widest uppercase mb-2 block text-center">Scroll</span>
-                <svg className="w-6 h-6 text-white/50 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {/* Scroll Indicator - Reverted to Clean Arrow & Fixed Position */}
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20 hidden md:block">
+                <svg className="w-8 h-8 text-white/70 mx-auto drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
             </div>

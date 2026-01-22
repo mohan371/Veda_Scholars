@@ -10,8 +10,8 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Veda Scholars | Education to Employment Consultancy',
-  description: 'Directing students from education to employment. Verified pathways for global careers in USA, UK, Canada, and more.',
-  keywords: ['Study Abroad', 'Education Consultant', 'Career Mapping'],
+  description: 'Veda Scholars helps students, universities, and employers bridge the gap between education and employment through global counselling, partnerships, and recruitment support.',
+  keywords: ['Study Abroad', 'Education Consultant', 'Career Mapping', 'Global Recruitment', 'University Partners'],
 };
 
 export default function Home() {

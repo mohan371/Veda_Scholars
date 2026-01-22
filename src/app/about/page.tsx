@@ -8,9 +8,8 @@ import FinalCTA from '@/components/home/FinalCTA'; // Reusing Final CTA
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'About Veda Scholars | Bridging Education & Careers',
-    description: 'We are more than agents. We are career architects building ethical bridges between universities and global employers.',
-    keywords: ['Ethical Counseling', 'Veda Scholars Story', 'Career Architects', 'Study Abroad Consultants'],
+    title: 'About Veda Scholars | Global Education & Career Experts',
+    description: 'Learn about Veda Scholars, a trusted education-to-employment consultancy supporting students, universities, and employers worldwide.',
 };
 
 export default function AboutPage() {

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { BookOpen, Briefcase, Zap, CheckCircle2, ArrowRight } from 'lucide-react';
 import Button from '../ui/Button';
 
@@ -8,6 +9,7 @@ export default function ServiceDetailedList() {
             id: 1,
             title: "Education Consultancy",
             icon: <BookOpen className="w-8 h-8 text-secondary" />,
+            image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop", // Students in library
             description: "We navigate the complex landscape of global education to find the perfect fit for your ambitions. Our guidance goes beyond rankings; we look at curriculum, campus culture, and career outcomes.",
             target: "High School Graduates, Undergraduates, Professionals aiming for Masters.",
             outcome: "Admission to a top-tier university with a scholarship strategy.",
@@ -22,6 +24,9 @@ export default function ServiceDetailedList() {
             id: 2,
             title: "Recruitment & Placement",
             icon: <Briefcase className="w-8 h-8 text-secondary" />,
+            image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop", // HR/Interview Scene - Professional & Neutral
+
+
             description: "Your degree is the starting line, not the finish. We actively connect our scholars with our network of global recruiters, ensuring your talent finds the right opportunity.",
             target: "Recent Graduates, Alumni, Skilled Professionals.",
             outcome: "Placement in a role that aligns with your qualifications and goals.",
@@ -36,6 +41,7 @@ export default function ServiceDetailedList() {
             id: 3,
             title: "Training & Skill Development",
             icon: <Zap className="w-8 h-8 text-secondary" />,
+            image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop", // Classroom/Seminar
             description: "The skills gap is real. We bridge it by providing industry-endorsed certifications and soft-skills training that make you day-one ready for the corporate world.",
             target: "Students wanting to boost employability.",
             outcome: "Industry-ready certification and enhanced professional confidence.",
@@ -98,26 +104,20 @@ export default function ServiceDetailedList() {
                                 </Button>
                             </div>
 
-                            {/* Visual/Image Placeholder - Using a stylized abstract card for now to keep it clean without requiring new image generation yet */}
+                            {/* Image Visual */}
                             <div className="w-full lg:w-1/2">
-                                <div className="aspect-square w-full max-w-md mx-auto bg-slate-900 rounded-2xl p-8 relative overflow-hidden shadow-2xl flex items-center justify-center group">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-primary to-slate-900"></div>
-                                    <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                                <div className="relative aspect-[4/3] w-full max-w-xl mx-auto rounded-2xl overflow-hidden shadow-2xl group">
+                                    <Image
+                                        src={service.image}
+                                        alt={service.title}
+                                        fill
+                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                    />
+                                    {/* Overlay Gradient */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
 
-                                    {/* Big Icon */}
-                                    <div className="relative z-10 text-white/5 group-hover:text-white/10 transition-colors duration-500 transform group-hover:scale-110">
-                                        {React.cloneElement(
-                                            service.icon as React.ReactElement<{ className?: string }>,
-                                            { className: "w-64 h-64" }
-                                        )}
-                                    </div>
-
-                                    <div className="absolute bottom-8 left-8 right-8 z-20">
-                                        <div className="h-1 w-20 bg-secondary rounded-full mb-4"></div>
-                                        <p className="text-slate-300 font-heading text-2xl font-light">
-                                            "Excellence in <br /> <span className="text-white font-bold">{service.title}</span>"
-                                        </p>
-                                    </div>
+                                    {/* Accent Shape */}
+                                    <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-secondary/20 rounded-full blur-3xl"></div>
                                 </div>
                             </div>
 

@@ -3,6 +3,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Analytics from "@/components/marketing/Analytics";
+import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -17,11 +18,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vedascholars.com'),
-  title: "Veda Scholars | Education to Employment",
-  description: "Guiding students from education to their dream careers.",
+  title: {
+    default: "Veda Scholars | Education to Employment Consultancy",
+    template: "%s | Veda Scholars"
+  },
+  description: "Veda Scholars helps students, universities, and employers bridge the gap between education and employment through global counselling, partnerships, and recruitment support.",
   openGraph: {
-    title: "Veda Scholars | Education to Employment",
-    description: "Guiding students from education to their dream careers.",
+    title: "Veda Scholars | Education to Employment Consultancy",
+    description: "Veda Scholars helps students, universities, and employers bridge the gap between education and employment through global counselling, partnerships, and recruitment support.",
     url: 'https://vedascholars.com',
     siteName: 'Veda Scholars',
     locale: 'en_US',
@@ -29,15 +33,28 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/opengraph-image.png',
+        width: 1200,
+        height: 630,
         alt: 'Veda Scholars – Education to Employment Consultancy',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Veda Scholars | Education to Employment",
-    description: "Guiding students from education to their dream careers.",
+    title: "Veda Scholars | Education to Employment Consultancy",
+    description: "Veda Scholars helps students, universities, and employers bridge the gap between education and employment through global counselling, partnerships, and recruitment support.",
     images: ['/opengraph-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
@@ -57,6 +74,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );
