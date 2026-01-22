@@ -99,7 +99,7 @@ export default function ServiceDetailedList() {
                                     ))}
                                 </div>
 
-                                <Button variant="primary" className="gap-2">
+                                <Button variant="primary" className="gap-2" href="/contact">
                                     Get Started <ArrowRight className="w-4 h-4" />
                                 </Button>
                             </div>
