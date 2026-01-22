@@ -44,7 +44,7 @@ export default function PartnerHero({ activeTab, setActiveTab }: PartnerHeroProp
 
             <div className="container mx-auto px-4 md:px-6 relative z-20 text-center text-white pt-20">
                 <FadeIn>
-                    <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight drop-shadow-lg">
+                    <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight drop-shadow-lg text-white">
                         Partnering with <br />
                         <span className="text-[#B8860B]">
                             {activeTab === 'universities' ? 'Global Universities' : 'Industry Leaders'}
