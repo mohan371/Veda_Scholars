@@ -27,8 +27,8 @@ export default function ContactInfo() {
         {
             icon: <MapPin className="w-6 h-6 text-secondary" />,
             title: "Visit Us",
-            info: "Veda Scholars HQ, Sector 18",
-            sub: "Noida, Uttar Pradesh, India - 201301",
+            info: "#Veda complex",
+            sub: "Near Titan Jewellery, Hosur - 635126",
             link: null
         }
     ];
