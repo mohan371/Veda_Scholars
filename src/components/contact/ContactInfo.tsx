@@ -27,8 +27,8 @@ export default function ContactInfo() {
         {
             icon: <MapPin className="w-6 h-6 text-secondary" />,
             title: "Visit Us",
-            info: "#Veda complex",
-            sub: "Near Titan Jewellery, Hosur - 635126",
+            info: "India • United Kingdom • United Arab Emirates",
+            sub: "",
             link: null
         }
     ];
@@ -52,9 +52,15 @@ export default function ContactInfo() {
                         </div>
                         <div>
                             <h3 className="font-bold text-primary text-lg">{item.title}</h3>
-                            <a href={item.link ? item.link : '#'} target={item.link ? "_blank" : "_self"} className={`text-slate-800 font-medium ${item.link ? 'hover:text-secondary transition-colors' : ''}`}>
-                                {item.info}
-                            </a>
+                            {item.link ? (
+                                <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-slate-800 font-medium hover:text-secondary transition-colors">
+                                    {item.info}
+                                </a>
+                            ) : (
+                                <p className="text-slate-500 font-normal">
+                                    {item.info}
+                                </p>
+                            )}
                             {item.sub && <p className="text-slate-500 text-sm">{item.sub}</p>}
                         </div>
                     </div>

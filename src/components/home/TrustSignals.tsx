@@ -1,14 +1,14 @@
 import React from 'react';
-import { Award, Globe, Users } from 'lucide-react';
+import { Compass, Globe, Users } from 'lucide-react';
 
 export default function TrustSignals() {
     const metrics = [
         {
             id: 1,
-            label: "Years of Experience",
-            value: "12+",
-            icon: <Award className="w-8 h-8 text-secondary" />,
-            description: "Dedicated to student success"
+            label: "GUIDED SUPPORT",
+            value: "24/7",
+            icon: <Compass className="w-8 h-8 text-secondary" />,
+            description: "Continuous mentoring throughout the student journey"
         },
         {
             id: 2,
