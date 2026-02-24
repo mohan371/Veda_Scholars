@@ -37,6 +37,7 @@ export default function Header() {
         { name: 'About Us', href: '/about' },
         { name: 'Services', href: '/services' },
         { name: 'Students', href: '/students' },
+        { name: 'Apply for Jobs', href: '/jobs/apply' },
         { name: 'Partner With Us', href: '/partner-with-us' },
         { name: 'Contact', href: '/contact' },
     ];
