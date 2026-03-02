@@ -2,8 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  output: 'export',
   reactCompiler: true,
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -14,25 +16,6 @@ const nextConfig: NextConfig = {
         hostname: 'upload.wikimedia.org',
       },
     ],
-  },
-  async redirects() {
-    return [
-      {
-        source: '/book-counselling',
-        destination: '/contact?type=counselling',
-        permanent: true,
-      },
-      {
-        source: '/partner',
-        destination: '/partner-with-us',
-        permanent: true,
-      },
-      {
-        source: '/get-started',
-        destination: '/contact',
-        permanent: true,
-      },
-    ];
   },
 };
 
