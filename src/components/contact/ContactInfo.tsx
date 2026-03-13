@@ -13,9 +13,9 @@ export default function ContactInfo() {
         {
             icon: <Phone className="w-6 h-6 text-secondary" />,
             title: "Call Us",
-            info: "+91 75300 26193",
+            info: "+91 7708722334",
             sub: "Mon-Sat, 9:00 AM - 6:00 PM IST",
-            link: "tel:+917530026193"
+            link: "tel:+917708722334"
         },
         {
             icon: <Globe className="w-6 h-6 text-secondary" />,
