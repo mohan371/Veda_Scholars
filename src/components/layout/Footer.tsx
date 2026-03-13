@@ -85,11 +85,11 @@ export default function Footer() {
                                 </div>
                                 <span className="text-sm">info@vedascholars.com</span>
                             </a>
-                            <a href="tel:+917530026193" className="flex items-center gap-3 text-slate-400 hover:text-secondary transition-colors group/link">
+                            <a href="tel:+917708722334" className="flex items-center gap-3 text-slate-400 hover:text-secondary transition-colors group/link">
                                 <div className="h-8 w-8 rounded-full bg-slate-800 flex items-center justify-center text-secondary group-hover/link:bg-secondary group-hover/link:text-primary transition-colors">
                                     <Phone size={16} />
                                 </div>
-                                <span className="text-sm">+91 75300 26193</span>
+                                <span className="text-sm">+91 7708722334</span>
                             </a>
                         </div>
 
