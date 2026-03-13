@@ -18,7 +18,7 @@ function WhatsAppButtonContent() {
     }
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/917530026193?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/917708722334?text=${encodedMessage}`;
 
     return (
         <a
