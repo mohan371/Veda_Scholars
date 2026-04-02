@@ -15,7 +15,7 @@ export default function Hero() {
 
             {/* Content */}
             <div className="container mx-auto px-4 md:px-6 relative z-10 text-center pt-20 pb-24">
-                <div className="max-w-4xl mx-auto space-y-8 animate-fade-in-up">
+                <div className="max-w-5xl mx-auto space-y-8 animate-fade-in-up">
                     <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-white leading-tight">
                         Empowering Your Journey from <br />
                         <span className="text-secondary">Education to Employment</span>
