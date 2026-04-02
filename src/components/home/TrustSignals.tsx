@@ -20,7 +20,7 @@ export default function TrustSignals() {
         {
             id: 3,
             label: "Students Guided",
-            value: "5,000+",
+            value: "10,000+",
             icon: <Users className="w-8 h-8 text-secondary" />,
             description: "From enrollment to employment"
         }
